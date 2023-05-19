@@ -23,3 +23,39 @@ int main(void)
     }
 
 }
+
+
+/* for multiple pin pwm 
+#include <msp430.h>
+int main(void)
+{
+    WDTCTL = WDTPW | WDTHOLD;   // Stop watchdog timer
+    PM5CTL0 &= ~LOCKLPM5;
+    P1DIR |= BIT1 | BIT2;                     // P1.1 and P1.2 output
+    P1SEL1 |= BIT1 | BIT2;                    // P1.1 and P1.2 options select
+    P1DIR |= BIT4 + BIT5;
+    P1SEL1 |= BIT4 + BIT5;
+
+    TA0CCR0 = 1000-1;                         // PWM Period
+    TA1CCR0 = 1000-1;                         // PWM Period
+
+    TA0CCTL1 = OUTMOD_7;                      // CCR1 reset/set LED2_WW
+    TA1CCTL1 = OUTMOD_7;
+    TA0CCTL2 = OUTMOD_7;
+    TA1CCTL2 = OUTMOD_7;
+
+
+    TA0CTL = TASSEL__SMCLK | MC__UP | TACLR;  // SMCLK, up mode, clear TAR
+    TA1CTL = TASSEL__SMCLK | MC__UP | TACLR;  // SMCLK, up mode, clear TAR
+
+    TA0CCR1 = 100;
+    TA0CCR2 = 100;
+    TA1CCR1 = 100;
+    TA1CCR2 = 100;
+
+    while (1)
+    {
+
+    }
+}
+*/
