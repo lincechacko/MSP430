@@ -2,7 +2,7 @@
 
 void configureUART()
 {
-    // Configure UART pins (P1.2 = RX, P1.3 = TX)
+    // Configure UART pins (P1.4 = RX, P1.5 = TX)
     P1SEL0 |= BIT4 | BIT5;
     P1SEL1 &= ~(BIT4 | BIT5);
 
